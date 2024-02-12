@@ -1,0 +1,382 @@
+:root {
+    --ruler: 16px;
+    --color-red: #AE1100;
+    --color-bg: #EBECF0;
+    --color-shadow: #BABECC;
+    --color-white: #FFF;
+}
+
+
+body {
+    position: relative;
+    margin: 0;
+    min-height: 1500px;
+    background-color: mintcream;
+    font-family: Comic Sans MS, Helvetica, Arial;
+    #background: url('/static/looking/img/hintergr2.jpg') no-repeat center center / cover;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 70px;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    #background: url('/static/looking/img/header2.jpg') no-repeat center center / cover;
+    background-color: darkblue;
+    box-shadow: 5px 3px 10px #000;
+}
+
+.logo {
+    display: contents;
+}
+
+.logo img {
+    width: 20%;
+    margin-left: 50px;
+    border-radius: 20px;
+}
+
+.headerText {
+    color: aliceblue;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 75px;
+}
+
+
+.anime {
+    position: absolute;
+    right: 120px;
+}
+
+.title1 {
+    display: inline;
+    text-align: center;
+    margin: 650px;
+}
+
+.eingabeBlock {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    background: azure;
+}
+
+.eingabeBlock h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.inputBox {
+    display: inline-block;
+}
+
+.vertical-line {
+    border-left: 1px solid black; /* Breite und Stil der Linie anpassen */
+    height: 110px;
+    box-shadow: 0 0 3px rgba(0,0,0.5);
+}
+
+.plzParameter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px 250px;
+    padding: 5px;
+    min-width: 400px;
+    max-width: 900px;
+    background: snow;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.plzParameter select, input {
+    border: none;
+    min-width: 100px;
+    margin-bottom: 15px;
+    height: 30px;
+    box-shadow: inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+}
+
+.periodeForm {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-around;
+}
+
+.periodeForm label {
+    display: block;
+}
+
+.periodeForm input {
+    width: 100px;
+}
+
+
+.but {
+    position: relative;
+    width: 80px;
+    height: 30px;
+    margin: 22px 15px 15px 15px;
+    background: -moz-linear-gradient(#2f4f4f, #009999);
+    background: -webkit-gradient(linear, 50% 50%, 50% 100%, from(#00BBD6), to(#2f4f4f));
+    padding: 3px 7px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #666;
+    font-weight: bold;
+}
+
+.but:hover {
+    background: skyblue;
+}
+.but:active {
+    background: cadetblue;
+    box-shadow: 0 3px #EBFFFF inset;
+}
+
+.inputBlock input {
+    height: 30px;
+    border: none;
+    padding: 0 8px;
+    margin-right: 6px;
+    box-shadow: inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+}
+
+.tkp {
+    display: flex;
+}
+.tkp h3 {
+    margin: 0;
+}
+
+.lastEl input {
+    width: 83%;
+    margin: 0;
+}
+
+.sideRight {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    padding: 20px;
+    right: 0;
+    top: 205px;
+    background: #BABECC;
+    border-left: 3px solid #2f4f4f;
+}
+
+.chackBoxdiv {
+    display: inline-block;
+    width: 100%;
+}
+
+.chackBoxForm {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.checkIN {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    color: darkgrey;
+    font-weight: bold;
+}
+
+.checkIN input {
+    width: 50px;
+    margin: 0;
+}
+
+.checkIN label {
+    margin-right: 15px;
+}
+
+
+.checkBoxcContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px 250px;
+    padding: 5px;
+    min-width: 400px;
+    max-width: 900px;
+    background: snow;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.chackBoxForm input[type="checkbox"] {
+    background-image: -webkit-linear-gradient(hsla(0,0%,0%,.1), hsla(0,0%,100%,.1)),
+                      -webkit-linear-gradient(left, #f66 50%, #6cf 50%);
+    background-size: 100% 100%, 200% 100%;
+    background-position: 0 0, 15px 0;
+    border-radius: 25px;
+    box-shadow: inset 0 1px 4px hsla(0,0%,0%,.5),
+                inset 0 0 10px hsla(0,0%,0%,.5),
+                0 0 0 1px hsla(0,0%,0%,.1),
+                0 -1px 2px 2px hsla(0,0%,0%,.25),
+                0 2px 2px 2px hsla(0,0%,100%,.75);
+    cursor: pointer;
+    height: 25px;
+    padding-right: 25px;
+    min-width: 75px;
+    -webkit-appearance: none;
+    -webkit-transition: .25s;
+}
+.chackBoxForm input[type="checkbox"]:after {
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(hsla(0,0%,100%,.1), hsla(0,0%,0%,.1));
+    border-radius: 25px;
+    box-shadow: inset 0 1px 1px 1px hsla(0,0%,100%,1),
+                inset 0 -1px 1px 1px hsla(0,0%,0%,.25),
+                0 1px 3px 1px hsla(0,0%,0%,.5),
+                0 0 2px hsla(0,0%,0%,.25);
+    content: '';
+    display: block;
+    height: 25px;
+    width: 50px;
+}
+.chackBoxForm input[type="checkbox"]:checked {
+    background-position: 0 0, 35px 0;
+    padding-left: 25px;
+    padding-right: 0;
+}
+
+.choiceBox {
+    overflow: hidden;
+    transition: height 1.5s ease;
+    height: 1px;
+}
+
+table {
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th, td {
+	padding: 8px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead th {
+    background-color: #55608f;
+    text-align: center;
+}
+
+thead th:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+thead th:last-child {
+    border-radius: 0 8px 0 0;
+}
+
+tbody tr:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+tbody td {
+    position: relative;
+}
+
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255,255,255,0.2);
+    z-index: -1;
+}
+
+.secondDE {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.choiceBox input[type="checkbox"] {
+    height: 20px;
+    min-width: 50px;
+    box-shadow: 0 0 0;
+    margin: 0;
+}
+
+.secondCheckBox {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.secondCheckBox select {
+    position: absolute;
+    right: -50px;
+}
+
+.labelBox {
+    margin-left: 60px;
+    padding: 10px;
+    height: 100%;
+    border-left: 6px solid midnightblue;
+}
+
+
+.insideLabelBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 250%;
+    height: 50px;
+}
+
+#laufzeitInterval {
+    line-height: initial;
+}
+
+.insideLabelBox p {
+    height: 40px;
+    width: 100px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.withBorder {
+    border: 1px solid midnightblue;
+    box-shadow: inset 1px 1px 1px 1px hsla(0,0%,100%,1),
+                inset 0 -1px 5px 1px hsla(0,0%,0%,.25), 3px 2px 10px 0
+                hsla(0,0%,0%,.5), 0 0 1px hsla(0,0%,0%,.25);
+}
+
+.headerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: gray;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    font-weight: bold;
+}

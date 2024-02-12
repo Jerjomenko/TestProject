@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GroupM tool</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+        <script src="https://unpkg.com/css-doodle@0.37.4/css-doodle.min.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/finecast.jpg') }}" alt="Logo">
+        </div>
+        <div class="headerText">
+            <h3>Verfügbarkeiten</h3>
+        </div>
+        <div class="anime">
+            <css-doodle style="width: 170px; height: 170px;">
+                <style>
+                    @grid: 20 / 60vmin;
+
+                    background: cyan;
+                    scale: 0;
+                    opacity: 0;
+                    animation: m 4s linear infinite;
+
+                    animation-delay: calc(
+                    -1s/@I * @i * @sin(@i)
+                    );
+
+                    @keyframes m {
+                    0%, 50%, 90% { scale: 1; opacity: 1 }
+                    25%, 75%, 100% { scale: 0; opacity: 0 }
+                    }
+                </style>
+             </css-doodle>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="title1">Berechnungen</h1>
+        <form action="" method="POST">
+        <section class="plzParameter">
+            <div class="inputBox">
+                <h3>PLZ8 Liste:</h3>
+                <div>
+                    <select name="plz" id="plz">
+                        <option value="10k">10k</option>
+                        <option value="15k">15k</option>
+                        <option value="20k">20k</option>
+                        <option value="25k">25k</option>
+                        <option value="30k">30k</option>
+                        <option value="35k">35k</option>
+                        <option value="40k">40k</option>
+                        <option value="45k">45k</option>
+                        <option value="50k">50k</option>
+                    </select>
+                </div>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="inputBox">
+                <h3 style="margin-bottom: 5px">Laufzeit:</h3>
+                <div class="periodeForm">
+                    <div class="inputBlock">
+                        <label for="start_date">Von:</label>
+                        <input type="date" id="start_date" name="start_date">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="end_date">Bis:</label>
+                        <input type="date" id="end_date" name="end_date">
+                    </div>
+                </div>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="inputBox">
+                <div class="tkp">
+                    <h3>TKP:</h3>
+                    <select name="tkp" id="tkp">
+                        <option value=1000>TKP</option>
+                        <option value=1>CPCV</option>
+                    </select>
+                </div>
+                <div class="lastEl">
+                    <input type="number" id="price" name="price" placeholder="€" value="0.0" step="any">
+                </div>
+            </div>
+            <div class="vertical-line"></div>
+            <button class="but" type="submit">Submit</button>
+        </section>
+        <sidebar class="sideRight">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur blanditiis cumque omnis quod rem sit? Commodi consequatur, corporis cupiditate debitis eius fugit impedit molestias placeat recusandae, sapiente tempora totam ullam.</p>
+            <div class="mytable">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Generelle Anfragen</th>
+                            <th>pro Monat Imps</th>
+                            <th>pro Monat €</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in info_dict.items() %}
+                            <tr>
+                                <td>{{ key }}</td>
+                                <td>{{ value[0] }}</td>
+                                <td>{{ value[1] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </sidebar>
+        <section class="checkBoxcContainer">
+            <div class="chackBoxdiv">
+                <div class="chackBoxForm" id="chackBoxForm">
+                    <div class="checkIN">
+                        <label for="De_id">DE</label>
+                        <input type="checkbox" name="De">
+                    </div>
+                    <div class="checkIN">
+                        <label for="austrien_id">AT</label>
+                        <input type="checkbox" name="AT">
+                    </div>
+                    <div class="checkIN">
+                        <label for="schweiz_id">CHE</label>
+                        <input type="checkbox" name="CHE">
+                    </div>
+                    <div class="checkIN">
+                        <label for="new_id">New</label>
+                        <input type="checkbox" name="new">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="checkBoxcContainer options">
+            <div class="choiceBox" id="choiceBox">
+                <div class="headerBox">
+                    <h3>Daten die Nach CHECKBOX erscheinen</h3>
+                </div>
+                <div class="DEclass contentContainer" id="DeContent">
+                    <div class="firstDE">
+                        <input type="checkbox" checked name="ctv">
+                        CTV
+                    </div>
+                    <div class="secondDE">
+                        <ul>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="pg" id="pg" value="25">
+                                PG Deal
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="cross" id="cross" value="20">
+                                Cross Screen
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="searchintent" id="searchintent" value="-50">
+                                Search Intent
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="finecastkids" id="finecastkids" value="-91">
+                                Finecast Kids
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="gamblalkohol" id="gamblalkohol" value="-50">
+                                Gambl / Alkohol
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="longvideo" id="longvideo" value="1">  <!-- HIer muss richtige wert 1 ist nur weil kein wert gegeben worde -->
+                                30+ sek.
+                            </div>
+                        </ul>
+                        <ul>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="youtube" id="youtube">
+                                YouTube
+                                <select name="select_for_youtube" id="select_for_youtube">
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                    <option value="35">35%</option>
+                                    <option value="40">40%</option>
+                                    <option value="45">45%</option>
+                                    <option value="50">50%</option>
+                                </select>
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="freevee" id="freevee">
+                                Freevee
+                                <select name="select_for_freevee" id="select_for_freevee">
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                    <option value="35">35%</option>
+                                    <option value="40">40%</option>
+                                    <option value="45">45%</option>
+                                    <option value="50">50%</option>
+                                </select>
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="atv" id="atv">
+                                ATV
+                                <select name="select_for_atv" id="select_for_atv">
+                                    <option value="10">10%</option>
+                                    <option value="15">15%</option>
+                                    <option value="20">20%</option>
+                                    <option value="25">25%</option>
+                                    <option value="30">30%</option>
+                                    <option value="35">35%</option>
+                                    <option value="40">40%</option>
+                                    <option value="45">45%</option>
+                                    <option value="50">50%</option>
+                                </select>
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="netflix" id="netflix" value="20">
+                                Netflix
+                            </div>
+                            <div class="secondCheckBox">
+                                <input type="checkbox" name="disney" id="disney" value="10">
+                                Disney+
+                            </div>
+                        </ul>
+                        <div class="labelBox">
+                            <div class="insideLabelBox">
+                                <p></p>
+                                <p>Impressions</p>
+                                <p>Budget</p>
+                            </div>
+                            <div class="insideLabelBox">
+                                <p>Tagesbasis</p>
+                                <p class="withBorder" id="imressionsTages">0</p>
+                                <p class="withBorder" id="budgetTages">0</p>
+                            </div>
+                            <div class="insideLabelBox">
+                                <p id="laufzeitInterval">Pro Laufzeit</p>
+                                <p class="withBorder" id="imprressionsLaufzeit">0</p>
+                                <p class="withBorder" id="budgetLaufzeit">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ATclass contentContainer" id="ATContent">
+                    <p>Hier ist noch kein Inhalt</p>
+                </div>
+                <div class="CHEclass contentContainer" id="CHEContent">
+                    <p>Hier ist noch kein Inhalt</p>
+                </div>
+            </div>
+        </section>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('#chackBoxForm input[type="checkbox"]');
+            const choiceBox = document.getElementById('choiceBox');
+
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    // Setze alle Inhalte auf "ausblenden"
+                    document.querySelectorAll('.contentContainer').forEach(function(content) {
+                        content.style.display = 'none';
+                    });
+
+                    // Zeige den Inhalt basierend auf der ausgewählten Checkbox an
+                    if (checkbox.checked) {
+                        const contentToShow = document.getElementById(checkbox.name + 'Content');
+                        if (contentToShow) {
+                            contentToShow.style.display = 'block';
+                            choiceBox.style.height = '400px';
+                        }
+                    } else {
+                        choiceBox.style.height = '1px'; // Setze die Höhe zurück auf 1px
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funktion, um die zuletzt eingegebenen Daten anzuzeigen
+            function displayLastEnteredData() {
+                const plzInput = document.getElementById('plz');
+                const startDateInput = document.getElementById('start_date');
+                const endDateInput = document.getElementById('end_date');
+                const tkpInput = document.getElementById('tkp');
+                const priceInput = document.getElementById('price');
+
+                // Überprüfe, ob die Daten im Local Storage vorhanden sind
+                if (localStorage.getItem('lastEnteredData')) {
+                    const lastEnteredData = JSON.parse(localStorage.getItem('lastEnteredData'));
+
+                    // Setze die Werte der Input-Felder auf die zuletzt eingegebenen Daten
+                    plzInput.value = lastEnteredData.plz || '';
+                    startDateInput.value = lastEnteredData.start_date || '';
+                    endDateInput.value = lastEnteredData.end_date || '';
+                    tkpInput.value = lastEnteredData.tkp || '';
+                    priceInput.value = lastEnteredData.price || '';
+                }
+            }
+
+            // Rufe die Funktion beim Laden der Seite auf
+            displayLastEnteredData();
+
+            document.querySelector('form').addEventListener('submit', function(event) {
+                // Verhindere das Neuladen der Seite
+                event.preventDefault();
+
+                // Führe deine Berechnungen hier durch
+
+
+                // Rufe die Funktion zum Speichern der eingegebenen Daten au
+
+                saveEnteredData();
+
+            // Führe deine Berechnungen hier durch
+                const plzValue = document.getElementById('plz').value;
+                const tkpValue = parseInt(document.getElementById('tkp').value, 10);
+                const priceValue = parseFloat(document.getElementById('price').value);
+                const startDate = new Date(document.getElementById('start_date').value);
+                const endDate = new Date(document.getElementById('end_date').value);
+                const dateInterval = endDate - startDate;
+                const days = Math.floor(dateInterval / (1000 * 60 * 60 * 24));
+
+                // checkbox schalt position für Python code
+                const pg = document.getElementById("pg").checked;
+                const cross = document.getElementById("cross").checked;
+                const searchintent = document.getElementById("searchintent").checked;
+                const finecastkids = document.getElementById("finecastkids").checked;
+                const gamblalkohol = document.getElementById("gamblalkohol").checked;
+                const longvideo = document.getElementById("longvideo").checked;
+                const youtube = document.getElementById("youtube").checked;
+                const freevee = document.getElementById("freevee").checked;
+                const atv = document.getElementById("atv").checked;
+                const netflix = document.getElementById("netflix").checked;
+                const disney = document.getElementById("disney").checked;
+
+                // drei Select options auch als wert für Python weiter geben
+                const youtubeVal = document.getElementById("select_for_youtube").value;
+                const freeveeVal = document.getElementById("select_for_freevee").value;
+                const atvVal = document.getElementById("select_for_atv").value;
+
+                const data = {
+                  "10k": 40400,
+                  "15k": 90910,
+                  "20k": 151520,
+                  "25k": 166670,
+                  "30k": 181820,
+                  "35k": 196970,
+                  "40k": 212120,
+                  "45k": 242425,
+                  "50k": 272730
+                };
+                // Hier kannst du die Berechnungen aus deinem Flask-Code durchführen
+                // funktion calculateImpressions kontroliert checkBox werte und endert die Impresions entsprechend
+                function calculateImpressions() {
+                    const plzValue = document.getElementById('plz').value;
+                    const checkBoxes = document.querySelectorAll('.secondCheckBox input[type="checkbox"]');
+                    let baseImpressions = parseInt(data[plzValue], 10);
+                    let updateAmount = 0;
+
+                    checkBoxes.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            const selectId = "select_for_" + checkbox.id;
+                            const selectElement = document.getElementById(selectId);
+                            if (selectElement) {
+                                const selectedOptionValue = parseFloat(selectElement.options[selectElement.selectedIndex].value);
+                                updateAmount += (baseImpressions * selectedOptionValue / 100);
+                            } else {
+                                const updateValue = parseFloat(checkbox.value);
+                                updateAmount += Math.round(baseImpressions * updateValue / 100);
+                            }
+                        }
+                    });
+                    baseImpressions += updateAmount;
+                    return baseImpressions;
+                }
+                // const impressions = parseInt(data[plzValue], 10);
+                const impressions = calculateImpressions();
+
+                const TKP_THRESHOLD = 1000;
+                const MULTIPLIER = 930 / 1000;
+                const budgetDay = (tkpValue === TKP_THRESHOLD) ?
+                    Math.round((impressions * priceValue) / tkpValue) :
+                    Math.round((impressions * priceValue) * MULTIPLIER);
+                const impressoinsLaufzeit = impressions * (days + 1);
+                const budgetLaufzeit = (budgetDay * (days + 1));
+                function roundToNearestTen(value) {
+                    return Math.floor(value / 10) * 10;
+                }
+                // Aktualisiere die Anzeige in deinem HTML-Dokument
+                const roundedBudgetDay = roundToNearestTen(budgetDay);
+                const roundedBudgetLaufzeit = roundToNearestTen(budgetLaufzeit);
+                document.getElementById('imressionsTages').innerHTML = impressions;
+                document.getElementById('budgetTages').innerHTML = roundedBudgetDay+ ' €';
+                document.getElementById('imprressionsLaufzeit').innerHTML = impressoinsLaufzeit;
+                document.getElementById('budgetLaufzeit').innerHTML = roundedBudgetLaufzeit + ' €';
+                document.getElementById('laufzeitInterval').innerHTML = "Pro Laufzeit " + (days + 1)+ " tagen";
+
+                const calculations = {
+                    pg: pg,
+                    cross: cross,
+                    searchintent: searchintent,
+                    finecastkids: finecastkids,
+                    gamblalkohol: gamblalkohol,
+                    longvideo: longvideo,
+                    youtube: youtube,
+                    freevee: freevee,
+                    atv: atv,
+                    youtubeVal: youtubeVal,
+                    freeveeVal: freeveeVal,
+                    atvVal: atvVal,
+                    netflix: netflix,
+                    disney: disney,
+                    plzValue: plzValue,
+                    startDate: startDate,
+                    endDate: endDate,
+                    tkpValue: tkpValue,
+                    priceValue: priceValue,
+                    impressions: impressions,
+                    budgetDay: roundedBudgetDay,
+                    impressoinsLaufzeit: impressoinsLaufzeit,
+                    budgetLaufzeit: roundedBudgetLaufzeit
+                };
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(calculations),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Hier kannst du auf die Antwort von Flask reagieren
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // Hier kannst du auf Fehler reagieren
+                });
+            });
+
+            // Funktion zum Speichern der eingegebenen Daten im Local Storage
+            // Nicht Ausschalten!!!!!
+            window.saveEnteredData = function() {
+                const plzValue = document.getElementById('plz').value;
+                const startDateValue = document.getElementById('start_date').value;
+                const endDateValue = document.getElementById('end_date').value;
+                const tkpValue = document.getElementById('tkp').value;
+                const priceValue = document.getElementById('price').value;
+
+                // Speichere die Daten im Local Storage
+                const enteredData = {
+                    plz: plzValue,
+                    start_date: startDateValue,
+                    end_date: endDateValue,
+                    tkp: tkpValue,
+                    price: priceValue
+                };
+                localStorage.setItem('lastEnteredData', JSON.stringify(enteredData));
+            };
+        });
+    </script>
+</body>
+</html>
+
